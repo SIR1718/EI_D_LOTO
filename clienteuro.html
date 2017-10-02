@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="euro.css">
+	
+</head>
+<body>
+
+
+<div class="key">
+</div>
+
+</body>
+<script type="text/javascript">
+
+		myKey = {
+			"numbers" : [1,4,5,11,45],
+			"stars" : [1,11]
+		};
+
+		debugger;
+
+		// get all the elements with class "key";
+		keyElements = document.getElementsByClassName("key");
+
+		// wonder that our div is always the first one
+		divKey = keyElements[0];
+
+		// create <ul>
+		myUL = document.createElement("ul");
+		myUL.setAttribute("class","numbers");
+
+		myLI = document.createElement("li");
+		myLI.innerHTML = myKey.numbers[0];
+
+		myUL.appendChild(myLI);
+		divKey.appendChild(myUL);
+
+
+
+</script>
+</html>

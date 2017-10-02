@@ -16,7 +16,7 @@
 
 //$textJSON = file_get_contents("http://62.28.241.149/~pmoreira/KEYSERVER/KeyServerJSON.php");
 
-$textJSON = file_get_contents("http://localhost/SIR1718/LOTO_D/KeyServerJSON.php");
+$textJSON = file_get_contents("http://localhost/SIR1718/LOTO_EI_D/keyServerJSON.php");
 
 $chave = json_decode($textJSON);
 
