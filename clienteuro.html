@@ -14,6 +14,9 @@
 </body>
 <script type="text/javascript">
 
+	// read : https://www.w3schools.com/js/js_json_http.asp
+
+		// key Object
 		myKey = {
 			"numbers" : [1,4,5,11,45],
 			"stars" : [1,11]
@@ -27,17 +30,32 @@
 		// wonder that our div is always the first one
 		divKey = keyElements[0];
 
-		// create <ul>
-		myUL = document.createElement("ul");
-		myUL.setAttribute("class","numbers");
+		// create <ul> class numbers
+		myULn = document.createElement("ul");
+		myULn.setAttribute("class","numbers");
 
-		myLI = document.createElement("li");
-		myLI.innerHTML = myKey.numbers[0];
+		for (i=0; i<myKey.numbers.length; i++) {
 
-		myUL.appendChild(myLI);
-		divKey.appendChild(myUL);
+			myLI = document.createElement("li");
+			myLI.innerHTML = myKey.numbers[i];
+			myULn.appendChild(myLI);
+		
+		}
+		// create <ul> class stars
+		myULs = document.createElement("ul");
+		myULs.setAttribute("class","stars");
 
+		for (i=0; i<myKey.stars.length; i++) {
 
+			myLI = document.createElement("li");
+			myLI.innerHTML = myKey.stars[i];
+			myULs.appendChild(myLI);
+		
+		}
+		
+	
+		divKey.appendChild(myULn);
+		divKey.appendChild(myULs);
 
 </script>
 </html>
