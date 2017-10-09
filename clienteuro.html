@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="euro.css">
-	
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="euro.css">
 </head>
+
 <body>
-
-
-<div class="content">
-</div>
-
+    <div id="control">
+        <button id="genkey"> New Key</button>
+        <button id="clearkey"> Clear All</button>
+    </div>
+    <div id="content">
+    </div>
 </body>
 <script type="text/javascript">
+// read : https://www.w3schools.com/js/js_json_http.asp
 
-	// read : https://www.w3schools.com/js/js_json_http.asp
+document.getElementById("genkey").addEventListener("click", getKey);
+document.getElementById("clearkey").addEventListener("click", clearKey);
 
-		// key Object
-		myKey = {
-			"numbers" : [1,4,5,11,45],
-			"stars" : [1,11]
-		};
-
-		//debugger;
+function getKey() {
+    console.log("genKey");
+    //debugger;
 
 
-		// get the element with id "content";
-		divContent = document.getElementById("content");
+    // get the element with id "content";
+    divContent = document.getElementById("content");
 
-		// for each key / bet we will create a new div#key
+    // for each key / bet we will create a new div#key
 
-		newDivKey = document.createElement("div");
-		newDivKey.setAttribute("class","key");
-
-
-		// create <ul> class numbers
-		myULn = document.createElement("ul");
-		myULn.setAttribute("class","numbers");
-
-		for (i=0; i<myKey.numbers.length; i++) {
-
-			myLI = document.createElement("li");
-			myLI.innerHTML = myKey.numbers[i];
-			myULn.appendChild(myLI);
-		
-		}
-		// create <ul> class stars
-		myULs = document.createElement("ul");
-		myULs.setAttribute("class","stars");
-
-		for (i=0; i<myKey.stars.length; i++) {
-
-			myLI = document.createElement("li");
-			myLI.innerHTML = myKey.stars[i];
-			myULs.appendChild(myLI);
-		
-		}
-	
-		newDivKey.appendChild(myULn);
-		newDivKey.appendChild(myULs);
-
-		divContent.appendChild(newDivKey);
+    newDivKey = document.createElement("div");
+    newDivKey.setAttribute("class", "key");
 
 
+    // create <ul> class numbers
+    myULn = document.createElement("ul");
+    myULn.setAttribute("class", "numbers");
+
+    for (i = 0; i < myKey.numbers.length; i++) {
+
+        myLI = document.createElement("li");
+        myLI.innerHTML = myKey.numbers[i];
+        myULn.appendChild(myLI);
+
+    }
+    // create <ul> class stars
+    myULs = document.createElement("ul");
+    myULs.setAttribute("class", "stars");
+
+    for (i = 0; i < myKey.stars.length; i++) {
+
+        myLI = document.createElement("li");
+        myLI.innerHTML = myKey.stars[i];
+        myULs.appendChild(myLI);
+
+    }
+
+    newDivKey.appendChild(myULn);
+    newDivKey.appendChild(myULs);
+
+    divContent.appendChild(newDivKey);
+
+}
+
+
+function clearKey() {
+    console.log("clearKey");
+    divContent = document.getElementById("content");
+    divContent.innerHTML = "";
+}
+
+
+// key Object
+myKey = {
+    "numbers": [1, 4, 5, 11, 45],
+    "stars": [1, 11]
+};
 </script>
+
 </html>
