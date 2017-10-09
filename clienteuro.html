@@ -24,6 +24,26 @@ function getKey() {
     console.log("genKey");
     //debugger;
 
+    var req = new XMLHttpRequest();
+
+    var myURL = "http://localhost/SIR1718/LOTO_EI_D/keyServerJSON.php";
+
+    req.open("GET",myURL);
+
+    req.onreadystatechange = processReq;
+
+    req.send();
+
+    function processReq() {
+    	console.log(req.readyState);
+    	if (req.readyState == 4 && req.status == 200) {
+    		console.log("completed with success");
+    		console.log(req.responseText);
+    		myKeyJS = JSON.parse(req.responseText);
+    		console.log(myKeyJS);
+
+    		// put the code to generate the HTML keys
+
 
     // get the element with id "content";
     divContent = document.getElementById("content");
@@ -38,10 +58,10 @@ function getKey() {
     myULn = document.createElement("ul");
     myULn.setAttribute("class", "numbers");
 
-    for (i = 0; i < myKey.numbers.length; i++) {
+    for (i = 0; i < myKeyJS.numbers.length; i++) {
 
         myLI = document.createElement("li");
-        myLI.innerHTML = myKey.numbers[i];
+        myLI.innerHTML = myKeyJS.numbers[i];
         myULn.appendChild(myLI);
 
     }
@@ -49,10 +69,10 @@ function getKey() {
     myULs = document.createElement("ul");
     myULs.setAttribute("class", "stars");
 
-    for (i = 0; i < myKey.stars.length; i++) {
+    for (i = 0; i < myKeyJS.stars.length; i++) {
 
         myLI = document.createElement("li");
-        myLI.innerHTML = myKey.stars[i];
+        myLI.innerHTML = myKeyJS.stars[i];
         myULs.appendChild(myLI);
 
     }
@@ -61,6 +81,12 @@ function getKey() {
     newDivKey.appendChild(myULs);
 
     divContent.appendChild(newDivKey);
+
+
+    	}
+    }  
+
+
 
 }
 
