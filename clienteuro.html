@@ -8,7 +8,7 @@
 <body>
 
 
-<div class="key">
+<div class="content">
 </div>
 
 </body>
@@ -22,13 +22,17 @@
 			"stars" : [1,11]
 		};
 
-		debugger;
+		//debugger;
 
-		// get all the elements with class "key";
-		keyElements = document.getElementsByClassName("key");
 
-		// wonder that our div is always the first one
-		divKey = keyElements[0];
+		// get the element with id "content";
+		divContent = document.getElementsById("content");
+
+		// for each key / bet we will create a new div#key
+
+		newDivKey = document.creteElement("div");
+		newDivKey.setAttribute("class","key");
+
 
 		// create <ul> class numbers
 		myULn = document.createElement("ul");
@@ -52,10 +56,12 @@
 			myULs.appendChild(myLI);
 		
 		}
-		
 	
-		divKey.appendChild(myULn);
-		divKey.appendChild(myULs);
+		newDivKey.appendChild(myULn);
+		newDivKey.appendChild(myULs);
+
+		divContent.appendChild(newDivKey);
+
 
 </script>
 </html>
